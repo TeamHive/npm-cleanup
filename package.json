@@ -34,16 +34,10 @@
     "dependencies": {
         "ajv": "^6.10.0",
         "colors": "^1.3.3",
-        "deepmerge": "^3.3.0",
-        "edit-json-file": "^1.2.1",
-        "json-schema": "^0.2.3",
-        "npm": "^6.9.0",
-        "npm-programatic": "^1.0.0"
+        "deepmerge": "^3.3.0"
     },
     "devDependencies": {
-        "@types/jsonschema": "^1.1.1",
         "@types/node": "^12.0.10",
-        "@types/npm": "^2.0.30",
         "json-schema-to-typescript": "^6.1.3",
         "tslint": "^5.18.0",
         "typescript": "^3.1.6"
