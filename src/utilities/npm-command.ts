@@ -6,7 +6,7 @@ export default async (command: 'install' | 'uninstall', modules: Modules) => {
         await runCommand(command, modules.dependencies, ['--save']);
     }
     if (modules.devDependencies) {
-        await runCommand(command, modules.devDependencies, ['--saveDev']);
+        await runCommand(command, modules.devDependencies, ['--save-dev']);
     }
 };
 

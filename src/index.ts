@@ -17,19 +17,19 @@ module.exports = async () => {
             if (settings === undefined) {
                 throw new Error('No settings provided');
             }
+            for (const jsonConfig of settings.json) {
+                await updateJson(jsonConfig);
+            }
             if (settings['install-packages']) {
                 await npmCommand('install', settings['install-packages']);
             }
             if (settings['remove-packages']) {
-                await npmCommand('uninstall', settings['install-packages']);
+                await npmCommand('uninstall', settings['remove-packages']);
             }
             if (settings['remove-files']) {
                 for (const file of settings['remove-files']) {
                     await removeFile(file);
                 }
-            }
-            for (const jsonConfig of settings.json) {
-                await updateJson(jsonConfig);
             }
         }
         else {
