@@ -1,0 +1,51 @@
+{
+    "name": "@teamhive/npm-cleanup",
+    "version": "0.0.1",
+    "description": "",
+    "keywords": [
+        "Typescript"
+    ],
+    "license": "ISC",
+    "author": "TeamHive",
+    "contributors": [
+        "Josh Gibson <gibsonjoshua55>"
+    ],
+    "homepage": "https://github.com/TeamHive/teamhive-node-project-cleanup",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/TeamHive/teamhive-node-project-cleanup.git"
+    },
+    "bugs": {
+        "url": "https://github.com/TeamHive/teamhive-node-project-cleanup/issues"
+    },
+    "bin": {
+        "npm-cleanup": "./bin/npm-cleanup.js"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "watch": "tsc -w",
+        "prestart": "tslint -p tsconfig.json -c tslint.json",
+        "start": "tsc",
+        "prepack": "tsc",
+        "postpublish": "git push && git push --tags",
+        "postpack": "rm *.d.ts && rm *.js",
+        "generateSchemaType": "npm run start && node lib/scripts/generate-ts-types.js"
+    },
+    "dependencies": {
+        "ajv": "^6.10.0",
+        "colors": "^1.3.3",
+        "deepmerge": "^3.3.0",
+        "edit-json-file": "^1.2.1",
+        "json-schema": "^0.2.3",
+        "npm": "^6.9.0",
+        "npm-programatic": "^1.0.0"
+    },
+    "devDependencies": {
+        "@types/jsonschema": "^1.1.1",
+        "@types/node": "^12.0.10",
+        "@types/npm": "^2.0.30",
+        "json-schema-to-typescript": "^6.1.3",
+        "tslint": "^5.18.0",
+        "typescript": "^3.1.6"
+    }
+}
