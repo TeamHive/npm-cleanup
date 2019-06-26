@@ -10,13 +10,13 @@
     "contributors": [
         "Josh Gibson <gibsonjoshua55>"
     ],
-    "homepage": "https://github.com/TeamHive/teamhive-node-project-cleanup",
+    "homepage": "https://github.com/TeamHive/npm-cleanup",
     "repository": {
         "type": "git",
-        "url": "https://github.com/TeamHive/teamhive-node-project-cleanup.git"
+        "url": "https://github.com/TeamHive/npm-cleanup.git"
     },
     "bugs": {
-        "url": "https://github.com/TeamHive/teamhive-node-project-cleanup/issues"
+        "url": "https://github.com/TeamHive/npm-cleanup/issues"
     },
     "bin": {
         "npm-cleanup": "./bin/npm-cleanup.js"
