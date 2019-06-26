@@ -3,6 +3,7 @@ import npmCommand from './utilities/npm-command';
 import updateJson from './utilities/update-json';
 import colors from 'colors/safe';
 import program from 'commander';
+import removeFile from './utilities/remove-file';
 
 module.exports = async () => {
     try {
@@ -21,6 +22,11 @@ module.exports = async () => {
             }
             if (settings['remove-packages']) {
                 await npmCommand('uninstall', settings['install-packages']);
+            }
+            if (settings['remove-files']) {
+                for (const file of settings['remove-files']) {
+                    await removeFile(file);
+                }
             }
             for (const jsonConfig of settings.json) {
                 await updateJson(jsonConfig);

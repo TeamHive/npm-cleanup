@@ -19,6 +19,12 @@ export default {
         },
         'remove-packages': {
             $ref: '#/definitions/modules'
+        },
+        'remove-files': {
+            type: 'array',
+            items: {
+                type: 'string'
+            }
         }
     },
     additionalProperties: false

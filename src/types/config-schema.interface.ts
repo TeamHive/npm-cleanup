@@ -9,6 +9,7 @@ export interface ConfigSchema {
   json?: Json[];
   "install-packages"?: Modules;
   "remove-packages"?: Modules;
+  "remove-files"?: string[];
 }
 export interface Json {
   src?: string;
