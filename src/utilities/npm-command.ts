@@ -14,8 +14,6 @@ const runCommand = (command: 'install' | 'uninstall', modules: string[], flags: 
     return new Promise((resolve, reject) => {
         const args = modules.slice();
         args.push(...flags);
-        console.log(args);
-
         // send output to stdio
         const commandProcess = child_process.spawn('npm', [command, ...args], {
             stdio: 'inherit'
