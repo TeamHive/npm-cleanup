@@ -4,8 +4,7 @@ import ajv from 'ajv';
 import configSchema from '../schema/config.schema';
 import { ConfigSchema } from '../types/config-schema.interface';
 
-export default async (): Promise<ConfigSchema | undefined> => {
-    const filePath = './npm-cleanup.config.json';
+export default async (filePath: string): Promise<ConfigSchema | undefined> => {
     if (fs.existsSync(filePath)) {
         try {
             const settings = await readJson(filePath);
@@ -32,6 +31,6 @@ export default async (): Promise<ConfigSchema | undefined> => {
         }
     }
     else {
-        return undefined;
+        throw new Error(`${filePath} is not a file`);
     }
 };
