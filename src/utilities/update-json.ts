@@ -1,5 +1,5 @@
 import merge from 'deepmerge';
-import removeProperties from './remove-propertites';
+import removeProps from './remove-props';
 import writeJson from './write-json';
 import readJson from './read-json';
 import { Json } from '../types/config-schema.interface';
@@ -15,7 +15,7 @@ export default async (jsonConfig: Json) => {
         });
     }
     if (jsonConfig.remove) {
-        removeProperties(finalJson, jsonConfig.remove);
+        removeProps(finalJson, jsonConfig.remove);
     }
     await writeJson(jsonConfig.src, finalJson);
 };
