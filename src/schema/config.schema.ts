@@ -1,12 +1,10 @@
 import modulesSchema from './modules.schema';
-import removeSchema from './remove.schema';
 import jsonSchema from './json.schema';
 
 export default {
     type: 'object',
     definitions: {
         modules: modulesSchema,
-        remove: removeSchema,
         json: jsonSchema
     },
     properties: {
@@ -22,5 +20,6 @@ export default {
         'remove-packages': {
             $ref: '#/definitions/modules'
         }
-    }
+    },
+    additionalProperties: false
 };

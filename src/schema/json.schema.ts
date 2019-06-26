@@ -10,6 +10,7 @@ export default {
         },
         remove: {
             type: 'object'
-        }
-    }
+        },
+    },
+    additionalProperties: false
 };

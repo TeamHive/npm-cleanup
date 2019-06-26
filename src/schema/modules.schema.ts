@@ -10,7 +10,7 @@ export default {
     type: 'object',
     properties: {
         dependencies: stringArray,
-        peerDependencies: stringArray,
         devDependencies: stringArray
-    }
+    },
+    additionalProperties: false
 };
