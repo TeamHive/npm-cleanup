@@ -32,7 +32,7 @@
         "start": "tsc",
         "prepack": "tsc",
         "postpublish": "git push && git push --tags",
-        "postpack": "rm *.d.ts && rm *.js",
+        "postpack": "rm -rf ./lib",
         "generateSchemaType": "npm run start && node lib/scripts/generate-ts-types.js"
     },
     "dependencies": {
