@@ -20,6 +20,6 @@ export default (filePath: string): Promise<object> => {
         });
     }
     else {
-        return undefined;
+        throw new Error(`File does not exist at ${filePath}`);
     }
 };
