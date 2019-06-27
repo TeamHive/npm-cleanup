@@ -56,7 +56,7 @@ See example:
 {
     "root": {
         "child1": {
-            "child1": "value"
+            "child2": "value"
         },
         "keep-me": "other-value"
     }
