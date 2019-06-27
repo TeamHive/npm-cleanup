@@ -2,7 +2,7 @@
     "name": "@teamhive/npm-cleanup",
     "version": "0.0.1",
     "private": false,
-    "description": "A cli tool to automate cleanup and updating of node projects",
+    "description": "npm-cleanup is a cli tool to automate cleanup and updating of node projects",
     "keywords": [
         "npm",
         "node",

@@ -3,8 +3,9 @@ import * as fs from 'fs';
 import readJson from './read-json';
 import configSchema from '../schema/config.schema';
 import { ConfigSchema } from '../types/config-schema.interface';
+import { PackageJson } from '../types/packageJson.interface';
 
-export default async (filePath: string): Promise<ConfigSchema | undefined> => {
+export default async (filePath: string, packageJson: PackageJson): Promise<ConfigSchema | undefined> => {
     if (fs.existsSync(filePath)) {
         try {
             const settings = await readJson(filePath);
@@ -24,13 +25,13 @@ export default async (filePath: string): Promise<ConfigSchema | undefined> => {
                     });
 
                 }
-                throw new Error('npm-cleanup config is invalid. See @teamhive/npm-cleanup for how to propery format the config file.');
+                throw new Error(`npm-cleanup config is invalid. See ${packageJson.name} for how to properly format the config file.`);
             }
         } catch (err) {
             throw err;
         }
     }
     else {
-        throw new Error(`${filePath} is not a file. See @teamhive/npm-cleanup for how to propery format the config file.`);
+        throw new Error(`${filePath} is not a file. See ${packageJson.name} for how to properly format the config file.`);
     }
 };
