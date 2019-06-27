@@ -40,7 +40,7 @@ The `json` property takes an array of objects which each can have the properties
 and `remove`.
 
 ##### `src`
-The the path to the json file that will be edited
+The path to the json file that will be edited
 
 ##### `override`
 This object will be deep-merged into the existing json object in the source file.  This means existing 
