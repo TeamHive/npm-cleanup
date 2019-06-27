@@ -4,7 +4,7 @@ import readJson from './read-json';
 import configSchema from '../schema/config.schema';
 import { ConfigSchema } from '../types/config-schema.interface';
 import { PackageJson } from '../types/packageJson.interface';
-
+import colors from 'colors/safe';
 export default async (filePath: string, packageJson: PackageJson): Promise<ConfigSchema | undefined> => {
     if (fs.existsSync(filePath)) {
         try {
@@ -20,12 +20,17 @@ export default async (filePath: string, packageJson: PackageJson): Promise<Confi
             else {
                 const errors = validate.errors;
                 if (errors && errors !== undefined) {
-                    errors.forEach((error) => {
-                        console.error('Error: ', error);
-                    });
-
+                    const errorString = errors.map((error) => {
+                        const path = `${error.dataPath ? error.dataPath : '#root'}`;
+                        const errorLine = `${colors.red('Config Schema Error:')} ${path} ${error.message}`;
+                        let additionalInfo = '';
+                        if (error.keyword === 'additionalProperties') {
+                            additionalInfo = `\n\t${JSON.stringify(error.params)}`;
+                        }
+                        return `${errorLine}${additionalInfo}`;
+                    }).join('\n');
+                    throw new Error(`npm-cleanup config is invalid. See ${packageJson.name} for how to properly format the config file. \n${errorString}`);
                 }
-                throw new Error(`npm-cleanup config is invalid. See ${packageJson.name} for how to properly format the config file.`);
             }
         } catch (err) {
             throw err;

@@ -8,7 +8,13 @@ export default (filePath: string): Promise<object> => {
                     reject(err);
                 }
                 else {
-                    resolve(JSON.parse(data));
+                    try {
+                        const parsedJson = JSON.parse(data);
+                        resolve(parsedJson);
+                    }
+                    catch (err) {
+                        reject(new Error(`error parsing json in file: ${filePath}`));
+                    }
                 }
             });
         });
