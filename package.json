@@ -28,7 +28,7 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "watch": "tsc -w",
-        "prestart": "tslint -p tsconfig.json -c tslint.json",
+        "prestart": "rm -rf ./lib && tslint -p tsconfig.json -c tslint.json",
         "start": "tsc",
         "prepack": "tsc",
         "postpublish": "git push && git push --tags",
