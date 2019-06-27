@@ -12,7 +12,7 @@ export interface ConfigSchema {
   "remove-files"?: string[];
 }
 export interface Json {
-  src?: string;
+  src: string;
   override?: {
     [k: string]: any;
   };

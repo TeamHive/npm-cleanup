@@ -37,10 +37,10 @@ npm i --save-dev nodemon tslint@latest
 
 ### json
 The `json` property takes an array of objects which each can have the properties `src`, `override`,
-and `remove`.
+and `remove`. `src` is required.
 
 ##### `src`
-The path to the json file that will be edited
+The path to the json file that will be edited.
 
 ##### `override`
 This object will be deep-merged into the existing json object in the source file.  This means existing 

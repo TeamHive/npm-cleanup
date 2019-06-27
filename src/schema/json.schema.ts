@@ -12,5 +12,6 @@ export default {
             type: 'object'
         },
     },
-    additionalProperties: false
+    additionalProperties: false,
+    required: ['src']
 };
