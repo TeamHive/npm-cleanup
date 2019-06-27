@@ -1,6 +1,6 @@
-import readJson from './read-json';
-import * as fs from 'fs';
 import ajv from 'ajv';
+import * as fs from 'fs';
+import readJson from './read-json';
 import configSchema from '../schema/config.schema';
 import { ConfigSchema } from '../types/config-schema.interface';
 
@@ -20,17 +20,17 @@ export default async (filePath: string): Promise<ConfigSchema | undefined> => {
                 const errors = validate.errors;
                 if (errors && errors !== undefined) {
                     errors.forEach((error) => {
-                        console.error(error);
+                        console.error('Error: ', error);
                     });
 
                 }
-                throw new Error('npm-cleanup config is invalid.');
+                throw new Error('npm-cleanup config is invalid. See @teamhive/npm-cleanup for how to propery format the config file.');
             }
         } catch (err) {
             throw err;
         }
     }
     else {
-        throw new Error(`${filePath} is not a file`);
+        throw new Error(`${filePath} is not a file. See @teamhive/npm-cleanup for how to propery format the config file.`);
     }
 };

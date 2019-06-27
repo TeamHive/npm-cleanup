@@ -1,21 +1,21 @@
-import getSettings from './utilities/get-settings';
-import npmCommand from './utilities/npm-command';
-import updateJson from './utilities/update-json';
 import colors from 'colors/safe';
 import program from 'commander';
+import getSettings from './utilities/get-settings';
+import npmCommand from './utilities/npm-command';
 import removeFile from './utilities/remove-file';
+import updateJson from './utilities/update-json';
 
 module.exports = async () => {
     try {
         program
             .version('0.0.1', '-v, --version')
             .option('-c, --config [path]', 'Path to configuration file')
-            .description('This tool helps automate cleanup and updates of node projects.')
+            .description('This tool helps you quickly update and cleanup node projects. See @teamhive/npm-cleanup for more information.')
             .parse(process.argv);
         if (program.config) {
             const settings = await getSettings(program.config);
             if (settings === undefined) {
-                throw new Error('No settings provided');
+                throw new Error('No settings provided. See @teamhive/npm-cleanup for setiting up the config file.');
             }
             for (const jsonConfig of settings.json) {
                 await updateJson(jsonConfig);
