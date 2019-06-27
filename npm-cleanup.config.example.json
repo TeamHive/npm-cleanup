@@ -44,6 +44,6 @@
             }
         }
     ],
-    "removeFiles": ["gulpfile.js"]
+    "remove-files": ["gulpfile.js"]
 
 }
