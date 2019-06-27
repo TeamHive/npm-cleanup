@@ -8,7 +8,7 @@ import removeFile from './utilities/remove-file';
 module.exports = async () => {
     try {
         program
-            .version('0.0.1')
+            .version('0.0.1', '-v, --version')
             .option('-c, --config [path]', 'Path to configuration file')
             .description('This tool helps automate cleanup and updates of node projects.')
             .parse(process.argv);
