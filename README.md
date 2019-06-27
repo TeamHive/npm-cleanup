@@ -11,6 +11,23 @@ npm i -g @teamhive/npm-cleanup
 npm-cleanup -c ./path-to-npm-cleanup.config.json
 ```
 
+### Flags
+##### `-v` or `--version`
+See the version of the tool that is installed.
+```sh
+npm-cleanup -v
+```
+##### `-c [path]` or `--config [path]`
+Specify the the path to the configuration file.
+```sh
+npm-cleanup -c ./path-to-npm-cleanup.config.json
+```
+##### `-h` or `--help`
+See the help page for the tool.
+```sh
+npm-cleanup -h
+```
+
 Your configuration file should be a json object as described below.
 
 ## Configuration
