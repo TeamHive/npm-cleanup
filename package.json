@@ -1,9 +1,13 @@
 {
     "name": "@teamhive/npm-cleanup",
     "version": "0.0.1",
-    "description": "",
+    "private": false,
+    "description": "A cli tool to automate cleanup and updating of node projects",
     "keywords": [
-        "Typescript"
+        "npm",
+        "node",
+        "project",
+        "cleanup"
     ],
     "license": "ISC",
     "author": "TeamHive",
