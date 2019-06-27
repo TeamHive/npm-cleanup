@@ -1,8 +1,8 @@
-import { compile } from 'json-schema-to-typescript';
-import { JSONSchema4 } from 'json-schema';
-import configSchema from '../schema/config.schema';
 import * as fs from 'fs';
+import { JSONSchema4 } from 'json-schema';
+import { compile } from 'json-schema-to-typescript';
 import * as path from 'path';
+import configSchema from '../schema/config.schema';
 const config = configSchema as JSONSchema4;
 
 compile(config, 'ConfigSchema').then((types) => {

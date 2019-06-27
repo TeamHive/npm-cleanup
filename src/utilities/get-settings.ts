@@ -1,10 +1,10 @@
 import ajv from 'ajv';
+import colors from 'colors/safe';
 import * as fs from 'fs';
 import readJson from './read-json';
 import configSchema from '../schema/config.schema';
 import { ConfigSchema } from '../types/config-schema.interface';
 import { PackageJson } from '../types/packageJson.interface';
-import colors from 'colors/safe';
 export default async (filePath: string, packageJson: PackageJson): Promise<ConfigSchema | undefined> => {
     if (fs.existsSync(filePath)) {
         try {

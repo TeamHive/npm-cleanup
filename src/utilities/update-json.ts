@@ -1,7 +1,7 @@
 import merge from 'deepmerge';
+import readJson from './read-json';
 import removeProps from './remove-props';
 import writeJson from './write-json';
-import readJson from './read-json';
 import { Json } from '../types/config-schema.interface';
 
 const overwriteMerge = (destinationArray, sourceArray, options) => sourceArray;

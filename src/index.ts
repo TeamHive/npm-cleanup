@@ -1,8 +1,8 @@
 import colors from 'colors/safe';
+import program from 'commander';
 import getPackage from './utilities/get-package';
 import getSettings from './utilities/get-settings';
 import npmCommand from './utilities/npm-command';
-import program from 'commander';
 import removeFile from './utilities/remove-file';
 import updateJson from './utilities/update-json';
 

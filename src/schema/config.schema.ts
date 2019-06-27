@@ -1,5 +1,5 @@
-import modulesSchema from './modules.schema';
 import jsonSchema from './json.schema';
+import modulesSchema from './modules.schema';
 
 export default {
     type: 'object',
