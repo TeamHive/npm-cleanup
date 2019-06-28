@@ -1,0 +1,7 @@
+node_modules
+*.js
+!bin/*.js
+*.d.ts
+*.tgz
+.DS_STORE
+lib/

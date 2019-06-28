@@ -1,0 +1,49 @@
+{
+    "package": {
+        "install-packages": {
+            "devDependencies": ["nodemon", "npm-run-all", "chokidar", "chokidar-cli"]
+        },
+        "remove-packages": {
+            "devDependencies": ["gulp", "gulp-nodemon", "gulp-tslint", "gulp-typescript"]
+        }
+    },
+    "json": [{
+            "src": "./package.json",
+            "override": {
+                "scripts": {
+                    "postversion": "git push --tag",
+                    "compile": "npm-run-all clear build",
+                    "clear": "rm -rf dist",
+                    "build": "tsc",
+                    "lint": "tslint -p tsconfig.json -c tslint.json",
+                    "prestart": "npm-run-all clear lint build",
+                    "start": "npm-run-all --parallel watch:project watch:start",
+                    "start:debug": "npm-run-all --parallel watch:project watch:debug",
+                    "watch:start": "nodemon './dist/index.js' --watch './dist'",
+                    "watch:project": "chokidar src/ src/**/ -c \"npm run lint && npm run build\"",
+                    "watch:debug": "nodemon --inspect-brk=5858 './dist/index.js' --watch './dist'"
+                }
+            }
+        },
+        {
+            "src": "./tsconifg.json",
+            "override": {
+                "compilerOptions": {
+                    "noUnusedLocals": true,
+                    "noUnusedParameters": true,
+                    "incremental": true
+                }
+            }
+        },
+        {
+            "src": "./tslint.json",
+            "remove": {
+                "rules": {
+                    "no-unused-variable": null
+                }
+            }
+        }
+    ],
+    "remove-files": ["gulpfile.js"]
+
+}
